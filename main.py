@@ -2,28 +2,20 @@ import pygame
 from constants import *
 
 def main():
-    screen = init()
-    draw(screen)
-
-def init():
     pygame.init()
     print("Starting Asteroids!")
-    # print(f"Screen width: {SCREEN_WIDTH}\nScreen height: {SCREEN_HEIGHT}")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    return screen
+    clock = pygame.time.Clock()
+    dt = 0
 
-def draw(screen):
     while True:
-        if events():
-            break
-        pygame.Surface.fill(screen, BLACK)
-        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
 
-def events():
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            return True
-    return False
+        screen.fill(BLACK)
+        pygame.display.flip()
+        dt = clock.tick(60) / 1000
 
 
 if __name__ == "__main__":

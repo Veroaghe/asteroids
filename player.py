@@ -4,9 +4,8 @@ from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED
 
 class Player(CircleShape):
     def __init__(self, x, y, color="white"):
-        super().__init__(x, y, PLAYER_RADIUS)
+        super().__init__(x, y, PLAYER_RADIUS, color)
         self.rotation = 0
-        self.color = color
     
     # in the player class
     def triangle(self):

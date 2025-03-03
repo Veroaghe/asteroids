@@ -9,10 +9,13 @@ import random, sys
 
 def main():
     pygame.init()
+    pygame.font.init()
+    my_font = pygame.font.SysFont('Comic Sans MS', 30)
     print("Starting Asteroids!")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
+    score = 0
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
@@ -42,6 +45,7 @@ def main():
         for asteroid in asteroids:
             if asteroid.collision(player):
                 print("Game Over!")
+                print(f"Final Score: {score}")
                 sys.exit()
             
             for shot in shots:
@@ -49,11 +53,15 @@ def main():
                 if not (0 - r < shot.position.x < SCREEN_WIDTH + r) or not (0 - r < shot.position.y < SCREEN_HEIGHT + r):
                     shot.kill()
                 if asteroid.collision(shot):
+                    score += asteroid.points
                     asteroid.split()
                     shot.kill()
         
         for obj in drawable:
             obj.draw(screen)
+
+        score_text = my_font.render(f"Score: {score}", False, "white")
+        screen.blit(score_text, (10, 10))
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000

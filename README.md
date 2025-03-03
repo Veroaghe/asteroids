@@ -1,12 +1,12 @@
 # boot.dev asteroids game project
 
 ## To Do
-- [ ] Add a scoring system
-  - [ ] Big meteors least points (5), mid meteors (10), small meteors (15)
-  - [ ] Store points inside asteroid instances
-  - [ ] On bullet-asteroid collision, add points to score
+- [x] Add a scoring system
+  - [x] Big meteors least points (5), mid meteors (10), small meteors (15)
+  - [x] Store points inside asteroid instances
+  - [x] On bullet-asteroid collision, add points to score
 - [ ] Create screen overlay
-  - [ ] Show score in top right
+  - [x] Show score in top left
 - [ ] Implement multiple lives and respawning
   - [ ] Health bar + a few i-frames is a bit more forgiving; can be combined with lives and respawning
   - [ ] i-frames make the ship blink for a second or 2

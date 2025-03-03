@@ -1,5 +1,5 @@
 from circleshape import CircleShape
-from constants import ASTEROID_MIN_RADIUS, ASTEROID_SPEED_MODIFIER, COLOR_PALETTES, COLOR_INDEX
+from constants import *
 import pygame, random
 
 class Asteroid(CircleShape):
@@ -31,3 +31,5 @@ class Asteroid(CircleShape):
             new_vel = self.velocity.rotate(angle) * ASTEROID_SPEED_MODIFIER
             new_asteroid = Asteroid(self.position.x, self.position.y, new_radius, colors[color_index])
             new_asteroid.velocity = new_vel
+            new_asteroid.points = ASTEROID_MIN_POINTS * (new_radius // ASTEROID_MIN_RADIUS)
+            new_asteroid.dmg = ASTEROID_MIN_DMG * (new_radius // ASTEROID_MIN_RADIUS)

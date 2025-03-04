@@ -1,6 +1,9 @@
 # boot.dev asteroids game project
+## Log
+- 20250303 : Scoring system added, score shown in top left
+- 20250304 : Game resets on death
 
-## To Do
+## Tasklist
 - [x] Add a scoring system
   - [x] Big meteors least points (5), mid meteors (10), small meteors (15)
   - [x] Store points inside asteroid instances
